@@ -14,19 +14,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       drawer: Drawer(
         backgroundColor: Theme.of(context).colorScheme.surface,
         child: Center(
           child: CupertinoSwitch(
             value: Provider.of<ThemeProvider>(context).isDarkMode,
-            onChanged: Provider.of<ThemeProvider>(
+            onChanged: (value) => Provider.of<ThemeProvider>(
               context,
               listen: false,
-            ).ToggleTheme(),
+            ).toggleTheme(),
           ),
         ),
       ),
-      body: Column(children: [Text('nigga boy')]),
+      // body: Column(children: [Text('nigga boy')]),
     );
   }
 }
