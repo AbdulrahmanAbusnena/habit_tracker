@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Dark mode
 ThemeData darkmode = ThemeData(
   colorScheme: ColorScheme.dark(
     surface: Colors.grey.shade900,
@@ -8,4 +9,5 @@ ThemeData darkmode = ThemeData(
     tertiary: Colors.grey.shade800,
     inversePrimary: Colors.grey.shade300,
   ),
-);
+); // idling 
+// fluttering 
