@@ -58,6 +58,25 @@ class Habit {
 
   int get totalCompletions => completedDays.length;
 
+  // Returns a copy with speciic fields changed
+  // we need this because the class is immutable because of the final fields aboce
+
+  Habit copyWith({
+    int? id,
+    String? name,
+    String? description,
+    int? colorIndex,
+    DateTime? createdAt,
+    List<String>? completedDays,
+  }) => Habit(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    description: description ?? this.description,
+    colorIndex: colorIndex ?? this.colorIndex,
+    createdAt: createdAt ?? this.createdAt,
+    completedDays: completedDays ?? this.completedDays,
+  );
+
   static String dateKey(DateTime date) =>
       '${date.year}-'
       '${date.month.toString().padLeft(2, '0')}-'
