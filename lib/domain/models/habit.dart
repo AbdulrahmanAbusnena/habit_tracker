@@ -30,4 +30,36 @@ class Habit {
     // .join(), method creates a single string by placing a specfic connector between items (I'm using it to connect the dates in the list)
     'completedDays': completedDays.join(','),
   };
+
+  // fromMap() is the reverse, meaning now from Map > habit
+  // factory refers to a constructor that returns an instance but can run logic before returnng
+
+  factory Habit.fromMap(Map<String, dynamic> map) => Habit(
+    id: map['id'] as int?,
+    name: map['name'] as String,
+    description: map['description'] as String?,
+    createdAt: DateTime.parse(map['createdAt'] as String),
+    completedDays: (map['completedDays'] as String).isEmpty
+        ? []
+        : (map['completedDays'] as String).split(','),
+  );
+
+  bool get isCompletedToday => completedDays.contains(dateKey(DateTime.now()));
+
+  int get currentStreak {
+    int streak = 0;
+    DateTime day = DateTime.now();
+    while (completedDays.contains(dateKey(day))) {
+      streak++;
+      day = day.subtract(const Duration(days: 1));
+    }
+    return streak;
+  }
+
+  int get totalCompletions => completedDays.length;
+
+  static String dateKey(DateTime date) =>
+      '${date.year}-'
+      '${date.month.toString().padLeft(2, '0')}-'
+      '${date.day.toString().padLeft(2, '0')}';
 }
