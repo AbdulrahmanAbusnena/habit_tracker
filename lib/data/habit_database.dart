@@ -23,6 +23,20 @@ class HabitDatabase {
       version: 1,
       // onCreate runs once here
       // this is where I'm going to define the schema
+      onCreate: (db, version) async {
+        await db.execute('''
+      CREATE table Habits ( 
+      id INTEGER PRIMARY KEY AUTOINCREMENT, 
+      description TEXT,
+      colorIndex INTEGER NOT NULL DEFAULT 0,
+      createdAt TEXT NOT NULL,
+      completedDays TEXT NOT NULL DEFAULT ''
+      ) 
+
+''');
+      },
     );
   }
+
+  // Let's start with CRUD
 }
