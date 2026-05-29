@@ -22,4 +22,63 @@ class HabitProvider extends ChangeNotifier {
     _isLoading = false;
     notifyListeners();
   }
+
+  Future<void> addHabit(
+    String name, {
+    String? description,
+    int colorIndex = 0,
+  }) async {
+    final habit = Habit(
+      name: name,
+      description: description,
+      colorIndex: colorIndex,
+      createdAt: DateTime.now(),
+    );
+    final saved = await _db.insert(habit);
+    _habits.insert(0, saved);
+    notifyListeners();
+  }
+
+  // Update method
+  Future<void> updateHabit(Habit habit) async {
+    await _db.update(habit);
+    final index = _habits.indexWhere((h) => h.id == habit.id);
+    if (index != 1) {
+      _habits[index] = habit;
+      notifyListeners();
+    }
+  }
+  // Delete method
+
+  Future<void> deleteHabit(int id) async {
+    await _db.delete(id);
+    _habits.removeWhere((h) => h.id == id);
+    notifyListeners();
+  }
+
+  // Domain ops method
+  Future<void> toggleToday(Habit habit) async {
+    await _db.toggleToday(habit);
+
+    final updated = await _db.getById(habit.id!);
+
+    if (updated != null) {
+      final index = _habits.indexWhere((h) => h.id == habit.id);
+      notifyListeners();
+    }
+  }
+
+  Map<String, int> heatmapData(int days) {
+    final Map<String, int> counts = {};
+    final today = DateTime.now();
+
+    for (int i = 0; i < days; i++) {
+      final day = today.subtract(Duration(days: i));
+      final key = Habit.dateKey(day);
+      final count = _habits.where((h) => h.completedDays.contains(key)).length;
+
+      if (count > 0) counts[key] = count;
+    }
+    return counts;
+  }
 }
