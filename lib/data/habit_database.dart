@@ -81,6 +81,12 @@ class HabitDatabase {
   }
 
   // Delete
+  Future<void> delete(int id) async {
+    final database = await db;
+    await database.delete('habits', where: 'id = ?', whereArgs: [id]);
+  }
+
+  // Domain operations
   Future<void> toggleToday(Habit habit) async {
     final key = Habit.dateKey(DateTime.now());
     final days = List<String>.from(habit.completedDays);
@@ -90,5 +96,6 @@ class HabitDatabase {
     } else {
       days.add(key);
     }
+    await update(habit.copyWith(completedDays: days));
   }
 }
