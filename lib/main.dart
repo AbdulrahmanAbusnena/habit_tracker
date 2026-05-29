@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/core/themes/theme_provider.dart';
+
 import 'package:habit_tracker/data/habit_database.dart';
+
 import 'package:habit_tracker/domain/providers/habit_provider.dart';
 import 'package:habit_tracker/screens/home_page.dart';
 import 'package:provider/provider.dart';
