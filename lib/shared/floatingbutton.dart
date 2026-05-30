@@ -14,7 +14,10 @@ class _FloatingButtonState extends State<FloatingButton> {
       onPressed: () {},
       elevation: 0,
       backgroundColor: Theme.of(context).colorScheme.tertiary,
-      child: const Icon(Icons.add),
+      child: Icon(
+        Icons.add,
+        color: Theme.of(context).colorScheme.inversePrimary,
+      ),
     );
   }
 }
