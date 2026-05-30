@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/shared/drawer.dart';
-import 'package:habit_tracker/shared/floatingbutton.dart';
+import 'package:habit_tracker/shared/widgets/drawer.dart';
+import 'package:habit_tracker/shared/widgets/floatingbutton.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,5 +18,5 @@ class _HomePageState extends State<HomePage> {
       drawer: HomeDrawer(),
       floatingActionButton: FloatingButton(),
     );
-  } // told you
+  }
 }
