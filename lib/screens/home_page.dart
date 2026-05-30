@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/core/themes/theme_provider.dart';
 import 'package:habit_tracker/shared/drawer.dart';
-import 'package:provider/provider.dart';
+import 'package:habit_tracker/shared/floatingbutton.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,7 +15,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(),
       drawer: HomeDrawer(),
-      // body: Column(children: [Text('nigga boy')]),
+      floatingActionButton: FloatingButton(),
     );
   } // told you
 }
