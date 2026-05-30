@@ -63,6 +63,7 @@ class HabitProvider extends ChangeNotifier {
     final updated = await _db.getById(habit.id!);
 
     if (updated != null) {
+      // ignore: unused_local_variable
       final index = _habits.indexWhere((h) => h.id == habit.id);
       notifyListeners();
     }
