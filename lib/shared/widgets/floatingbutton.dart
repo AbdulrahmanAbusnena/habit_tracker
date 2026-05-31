@@ -25,8 +25,8 @@ class _FloatingButtonState extends State<FloatingButton> {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: _openAddHabit,
-      elevation: 0,
-      backgroundColor: Theme.of(context).colorScheme.tertiary,
+      elevation: 0.9,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       child: Icon(
         Icons.add,
         color: Theme.of(context).colorScheme.inversePrimary,

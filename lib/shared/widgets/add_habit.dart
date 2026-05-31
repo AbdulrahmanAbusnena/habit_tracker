@@ -46,7 +46,7 @@ class _AddHabitState extends State<AddHabit> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'New Habit',
+            'Add a New Habit',
             style: GoogleFonts.montserrat(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 16),
@@ -55,8 +55,9 @@ class _AddHabitState extends State<AddHabit> {
             autofocus: true,
             textCapitalization: TextCapitalization.sentences,
             decoration: const InputDecoration(
-              hintText: 'Habit name',
-              border: OutlineInputBorder(),
+              hintText: 'Habit Name',
+              hintStyle: TextStyle(color: Colors.grey),
+              border: UnderlineInputBorder(),
             ),
             // Then tapping "done" and then the keyboard
             onSubmitted: (_) => _submit(),
@@ -64,7 +65,10 @@ class _AddHabitState extends State<AddHabit> {
 
           const SizedBox(height: 16),
 
-          FilledButton(onPressed: _submit, child: Text('Add Habit')),
+          FilledButton(
+            onPressed: _submit,
+            child: Text('Add Habit', style: GoogleFonts.montserrat()),
+          ),
         ],
       ),
     );
