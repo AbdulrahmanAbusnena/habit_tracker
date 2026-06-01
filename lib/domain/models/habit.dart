@@ -44,7 +44,8 @@ class Habit {
         : (map['completedDays'] as String).split(','),
   );
 
-  bool get isCompletedToday => completedDays.contains(dateKey(DateTime.now()));
+  bool get isCompletedToday =>
+      completedDays.contains(Habit.dateKey(DateTime.now()));
 
   int get currentStreak {
     int streak = 0;
