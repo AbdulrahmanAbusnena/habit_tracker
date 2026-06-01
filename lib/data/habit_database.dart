@@ -10,7 +10,7 @@ class HabitDatabase {
   Database? _db;
 
   Future<Database> get db async {
-    // If already open, return it immediately
+    // If already open, return it immediate ly
     _db ??= await _init();
     return _db!;
   }
@@ -25,8 +25,9 @@ class HabitDatabase {
       // this is where I'm going to define the schema
       onCreate: (db, version) async {
         await db.execute('''
-      CREATE table Habits ( 
-      id INTEGER PRIMARY KEY AUTOINCREMENT, 
+      CREATE table habits ( 
+      id INTEGER PRIMARY KEY AUTOINCREMENT,  
+      name TEXT NOT NULL,
       description TEXT,
       colorIndex INTEGER NOT NULL DEFAULT 0,
       createdAt TEXT NOT NULL,
@@ -34,6 +35,14 @@ class HabitDatabase {
       ) 
 
 ''');
+      },
+      onUpgrade: (db, oldVersion, newVersion) async {
+        // Handle database upgrades if needed in the future
+        if (oldVersion < 2) {
+          await db.execute(
+            'ALTER TABLE habits ADD COLUMN name TEXT NOT NULL DEFAULT "";',
+          );
+        }
       },
     );
   }

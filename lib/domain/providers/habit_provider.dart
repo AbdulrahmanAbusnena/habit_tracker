@@ -43,7 +43,7 @@ class HabitProvider extends ChangeNotifier {
   Future<void> updateHabit(Habit habit) async {
     await _db.update(habit);
     final index = _habits.indexWhere((h) => h.id == habit.id);
-    if (index != 1) {
+    if (index != -1) {
       _habits[index] = habit;
       notifyListeners();
     }
