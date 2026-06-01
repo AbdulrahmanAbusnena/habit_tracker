@@ -5,7 +5,6 @@ import 'package:habit_tracker/shared/widgets/drawer.dart';
 import 'package:habit_tracker/shared/widgets/floatingbutton.dart';
 import 'package:provider/provider.dart';
 import '../domain/models/habit.dart';
-import '../domain/providers/habit_provider.dart';
 import '../shared/widgets/habit_tile.dart';
 import '../shared/widgets/edit_habit.dart';
 
