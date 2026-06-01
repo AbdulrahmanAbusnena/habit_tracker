@@ -97,3 +97,53 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+class _SectionHeader extends StatelessWidget {
+  final String title;
+  final int count;
+
+  const _SectionHeader({required this.title, required this.count});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: GoogleFonts.montserrat(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Theme.of(
+                context,
+              ).colorScheme.inversePrimary.withValues(alpha: 0.5),
+            ),
+          ),
+          const SizedBox(width: 8),
+
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+            decoration: BoxDecoration(
+              color: Theme.of(
+                context,
+              ).colorScheme.primary.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(99),
+            ),
+            child: Text(
+              '$count',
+              style: GoogleFonts.montserrat(
+                fontSize: 12,
+                color: Theme.of(
+                  context,
+                ).colorScheme.inversePrimary.withValues(alpha: 0.7),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
