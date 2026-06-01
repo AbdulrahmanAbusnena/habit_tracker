@@ -17,6 +17,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  void _openEditSheet(Habit habit) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) => EditHabitBox(habit: habit),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<HabitProvider>();
