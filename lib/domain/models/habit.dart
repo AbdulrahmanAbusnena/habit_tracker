@@ -42,6 +42,7 @@ class Habit {
     completedDays: (map['completedDays'] as String).isEmpty
         ? []
         : (map['completedDays'] as String).split(','),
+    colorIndex: map['colorIndex'] as int? ?? 0,
   );
 
   bool get isCompletedToday =>
