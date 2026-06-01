@@ -147,3 +147,43 @@ class _SectionHeader extends StatelessWidget {
     );
   }
 }
+
+class _AllDoneBanner extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.tertiary,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          children: [
+            const Text('🎉', style: TextStyle(fontSize: 28)),
+            const SizedBox(height: 6),
+            Text(
+              'All done for today!',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              'Come back tomorrow',
+              style: TextStyle(
+                fontSize: 12,
+                color: Theme.of(
+                  context,
+                ).colorScheme.inversePrimary.withValues(alpha: 0.5),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
