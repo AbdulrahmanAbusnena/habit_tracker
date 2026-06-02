@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:habit_tracker/domain/providers/habit_provider.dart';
+import 'package:habit_tracker/shared/heatmap.dart';
 import 'package:habit_tracker/shared/widgets/drawer.dart';
 import 'package:habit_tracker/shared/widgets/floatingbutton.dart';
 import 'package:provider/provider.dart';
@@ -59,6 +60,8 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  Heatmap(),
+
                   Icon(
                     Icons.add_task,
                     size: 56,
@@ -82,6 +85,8 @@ class _HomePageState extends State<HomePage> {
           : ListView(
               padding: const EdgeInsets.only(bottom: 100),
               children: [
+                Heatmap(),
+
                 _SectionHeader(title: 'Pending', count: pending.length),
                 if (pending.isEmpty)
                   _AllDoneBanner()
