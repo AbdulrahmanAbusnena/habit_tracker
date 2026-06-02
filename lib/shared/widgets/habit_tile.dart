@@ -63,6 +63,7 @@ class HabitTile extends StatelessWidget {
         ),
         // Now the Tile itself
         child: Container(
+          height: 64,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(12),
@@ -71,7 +72,7 @@ class HabitTile extends StatelessWidget {
             children: [
               Container(
                 width: 5,
-                height: 64,
+
                 decoration: BoxDecoration(
                   color: color,
                   borderRadius: const BorderRadius.horizontal(
@@ -125,28 +126,36 @@ class HabitTile extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 12),
-                child: GestureDetector(
+                child: InkWell(
                   onTap: () => context.read<HabitProvider>().toggleToday(habit),
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.easeOut,
-                    width: 26,
-                    height: 26,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: isDone ? color : Colors.transparent,
-                      border: Border.all(
-                        color: isDone
-                            ? color
-                            : Theme.of(
-                                context,
-                              ).colorScheme.onSurface.withValues(alpha: 0.3),
-                        width: 2,
+                  borderRadius: BorderRadius.circular(100),
+                  child: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.easeOut,
+                      width: 26,
+                      height: 26,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: isDone ? color : Colors.transparent,
+                        border: Border.all(
+                          color: isDone
+                              ? color
+                              : Theme.of(
+                                  context,
+                                ).colorScheme.onSurface.withValues(alpha: 0.3),
+                          width: 2,
+                        ),
                       ),
+                      child: isDone
+                          ? const Icon(
+                              Icons.check,
+                              size: 14,
+                              color: Colors.white,
+                            )
+                          : null,
                     ),
-                    child: isDone
-                        ? const Icon(Icons.check, size: 14, color: Colors.white)
-                        : null,
                   ),
                 ),
               ),
