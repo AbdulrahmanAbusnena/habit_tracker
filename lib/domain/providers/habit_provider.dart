@@ -71,17 +71,21 @@ class HabitProvider extends ChangeNotifier {
     }
   }
 
-  Map<String, int> heatmapData(int days) {
-    final Map<String, int> counts = {};
-    final today = DateTime.now();
+  Map<DateTime, int> heatmapData() {
+    final Map<DateTime, int> counts = {};
 
-    for (int i = 0; i < days; i++) {
-      final day = today.subtract(Duration(days: i));
-      final key = Habit.dateKey(day);
-      final count = _habits.where((h) => h.completedDays.contains(key)).length;
-
-      if (count > 0) counts[key] = count;
+    for (final habit in _habits) {
+      for (final dateStr in habit.completedDays) {
+        final parts = dateStr.split('-');
+        final date = DateTime(
+          int.parse(parts[0]), // year
+          int.parse(parts[1]), // month
+          int.parse(parts[2]), // day
+        );
+        counts[date] = (counts[date] ?? 0) + 1;
+      }
     }
+
     return counts;
   }
 }
