@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import '../models/habit.dart';
-import 'package:habit_tracker/data/habit_database.dart';
+import 'package:habit_tracker/features/habits/data/habit_database.dart';
 
 class HabitProvider extends ChangeNotifier {
   final HabitDatabase _db = HabitDatabase.instance;
