@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../../domain/models/habit.dart';
-import '../../domain/providers/habit_provider.dart';
+import '../../features/habits/domain/models/habit.dart';
+import '../../features/habits/domain/providers/habit_provider.dart';
 
 class HabitTile extends StatelessWidget {
   final Habit habit;
@@ -11,12 +11,12 @@ class HabitTile extends StatelessWidget {
 
   const HabitTile({super.key, required this.habit, required this.onEdit});
   static const List<Color> _colors = [
-    Color(0xFF7C6FF7), // purple
-    Color(0xFF4CAF82), // teal
-    Color(0xFFE8834A), // coral
-    Color(0xFF4A9FD4), // blue
-    Color(0xFFE8B84A), // amber
-    Color(0xFFD45A7A), // pink
+    Color(0xFF7C6FF7),
+    Color(0xFF4CAF82),
+    Color(0xFFE8834A),
+    Color(0xFF4A9FD4),
+    Color(0xFFE8B84A),
+    Color(0xFFD45A7A),
   ];
 
   @override

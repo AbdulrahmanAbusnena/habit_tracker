@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:habit_tracker/domain/models/habit.dart';
+import 'package:habit_tracker/features/habits/domain/models/habit.dart';
 
 class HabitDatabase {
   // private const

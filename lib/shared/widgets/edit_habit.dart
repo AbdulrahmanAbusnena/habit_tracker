@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../domain/models/habit.dart';
-import '../../domain/providers/habit_provider.dart';
+import '../../features/habits/domain/models/habit.dart';
+import '../../features/habits/domain/providers/habit_provider.dart';
 
 class EditHabitBox extends StatefulWidget {
   final Habit habit; // the habit being edited
