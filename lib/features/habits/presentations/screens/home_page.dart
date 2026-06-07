@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:habit_tracker/features/habits/domain/providers/habit_provider.dart';
 import 'package:habit_tracker/shared/heatmap.dart';
-import 'package:habit_tracker/shared/widgets/drawer.dart';
-import 'package:habit_tracker/shared/widgets/floatingbutton.dart';
+import 'package:habit_tracker/features/habits/presentations/widgets/drawer.dart';
+import 'package:habit_tracker/features/habits/presentations/widgets/floatingbutton.dart';
 import 'package:provider/provider.dart';
 import '../../domain/models/habit.dart';
-import '../../../../shared/widgets/habit_tile.dart';
-import '../../../../shared/widgets/edit_habit.dart';
+import '../widgets/habit_tile.dart';
+import '../widgets/edit_habit.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
