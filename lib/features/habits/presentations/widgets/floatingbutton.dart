@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/shared/widgets/add_habit.dart';
+import 'package:habit_tracker/features/habits/presentations/widgets/add_habit.dart';
 
 class FloatingButton extends StatefulWidget {
   const FloatingButton({super.key});
